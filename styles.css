@@ -153,3 +153,47 @@ body:not(.bling) nav a:hover {
   background-color: rgb(161, 247, 174);
   color: rgb(0, 0, 0);
 }
+
+
+/* Flexlayout runt bilden/bilderna i modalen */
+.article {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Thumbnail – klickbar */
+#thumbs {
+  width: 160px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#thumbs:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+}
+
+/ Stor bild – visas när JS sätter display:block /
+#imgstor {
+  display: none;               / JS sätter block vid visning /
+  max-width: min(100%, 720px); / håll dig inom modalen /
+  max-height: 70vh;            / snygg höjd i modalen /
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin: 0 auto;              / centrera i modalen /
+}
+
+/ Säkerställ att bilder aldrig spiller ut /
+.modal__body img {
+  max-width: 100%;
+  height: auto;
+}
+
+/ Mindre skärmar: gör tumnageln lite mindre */
+@media (max-width: 480px) {
+  #thumbs { width: 120px; }
+}
